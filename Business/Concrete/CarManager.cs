@@ -23,10 +23,15 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length < 2 )
+            /*
+            if (car.description.length < 5)
             {
-                return new ErrorResult(Messages.CarNameInvalid);
+                return new errorresult(messages.carnameınvalid);
             }
+            */
+
+
+
             carDal1.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -63,14 +68,14 @@ namespace Business.Concrete
         }
 
 
-        // business ın bildiği tek şey ICarDal'dır.
+        
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 22)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            //}
 
             return new SuccessDataResult<List<Car>>(carDal1.GetAll(), Messages.CarsListed);
         }

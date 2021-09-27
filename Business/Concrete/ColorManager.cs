@@ -20,10 +20,10 @@ namespace Business.Concrete
 
         public IResult Add(Color color)
         {
-            if (color.ColorName.Length < 3)
-            {
-                return new ErrorResult(Messages.ColorIsNotInvalid);
-            }
+            //if (color.ColorName.Length <= 3)
+            //{
+            //    return new ErrorResult(Messages.ColorIsNotInvalid);
+            //}
             colorDal1.Add(color);
             return new SuccessResult(Messages.ColorAdded);
         }

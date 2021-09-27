@@ -18,10 +18,10 @@ namespace Business.Concrete
         }
         public IResult Add(Customer customer)
         {
-            if (customer.CompanyName.Length < 3)
-            {
-                return new ErrorResult(Messages.CustomerIsNotInvalid);
-            }
+            //if (customer.CompanyName.Length <= 3)
+            //{
+            //    return new ErrorResult(Messages.CustomerIsNotInvalid);
+            //}
             _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAdded);
         }

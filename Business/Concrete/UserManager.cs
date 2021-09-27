@@ -18,10 +18,10 @@ namespace Business.Concrete
         }
         public IResult Add(User user)
         {
-            if (user.FirstName.Length < 3)
-            {
-                return new ErrorResult(Messages.UserIsNotInvalid);
-            }
+            //if (user.FirstName.Length <= 3)
+            //{
+            //    return new ErrorResult(Messages.UserIsNotInvalid);
+            //}
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
