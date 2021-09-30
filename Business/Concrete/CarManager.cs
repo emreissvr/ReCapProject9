@@ -1,6 +1,8 @@
 ﻿
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,17 +23,11 @@ namespace Business.Concrete
             carDal1 = ıcarDal;
         }
 
+
+        [ValidationAspect(typeof(CarValidator))] // AOP - Aspect oriented programming
         public IResult Add(Car car)
         {
-            /*
-            if (car.description.length < 5)
-            {
-                return new errorresult(messages.carnameınvalid);
-            }
-            */
-
-
-
+            
             carDal1.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
