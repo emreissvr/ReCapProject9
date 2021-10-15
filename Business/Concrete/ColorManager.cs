@@ -21,6 +21,8 @@ namespace Business.Concrete
         }
 
 
+
+
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {

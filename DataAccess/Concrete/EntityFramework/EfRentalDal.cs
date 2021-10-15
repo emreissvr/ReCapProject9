@@ -5,6 +5,7 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -18,12 +19,12 @@ namespace DataAccess.Concrete.EntityFramework
                              join car in context.Cars on r.CarId equals car.CarId
                              join b in context.Brands on car.BrandId equals b.BrandId
                              join cust in context.Customers on r.CustomerId equals cust.CustomerId
-                             join u in context.Users on cust.UserId equals u.UserId
+                             join u in context.Users on cust.UserId equals u.Id
                              select new RentalDetailDto
                              {
                                  RentalId = r.CarId,
                                  CarName = b.BrandName,
-                                 CustomerName = u.FirstName + "" + u.LastName,
+                                 CustomerName = $"{u.FirstName } {u.LastName}", // u.FirstName + "" + u.LastName,
                                  RentDate = r.RentDate,
                                  ReturnDate = r.ReturnDate
                              };

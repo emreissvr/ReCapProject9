@@ -24,7 +24,10 @@ namespace Business.Concrete
         }
 
 
-        [ValidationAspect(typeof(CarValidator))] // AOP - Aspect oriented programming
+
+        //[CacheRemoveAspect("ICarService.Get")]
+        //[SecuredOperation("car.add,admin")]
+        //[ValidationAspect(typeof(CarValidator))] // AOP - Aspect oriented programming
         public IResult Add(Car car)
         {
             
@@ -34,6 +37,7 @@ namespace Business.Concrete
 
 
 
+        //[CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Car car)
         {
             if(car.CarId >= 1)
@@ -48,8 +52,9 @@ namespace Business.Concrete
 
         }
 
-      
 
+
+        //[CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
             if(car.CarId >= 1)
@@ -64,8 +69,10 @@ namespace Business.Concrete
         }
 
 
-        
 
+
+        //[CacheAspect]
+        //[PerformanceAspect(5)]
         public IDataResult<List<Car>> GetAll()
         {
             //if (DateTime.Now.Hour == 22)
@@ -93,6 +100,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(carDal1.GetCarDetails());
         }
 
-        
+
+        //[CacheAspect]
+        public IDataResult<Car> GetById(int id)
+        {
+            return new SuccessDataResult<Car>(carDal1.Get(p => p.CarId == id));
+        }
     }
 }

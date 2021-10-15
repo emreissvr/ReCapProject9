@@ -19,6 +19,8 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
+
+
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {

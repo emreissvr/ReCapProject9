@@ -1,5 +1,6 @@
 ﻿
 using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -15,49 +16,49 @@ namespace ConsoleUI
             //CarAddTest();
             //BrandNameTest();
 
-            CustomerAdded();
-            UserAdded();
-            RentalCarDetails();
+            //CustomerAdded();
+            //UserAdded();
+            //RentalCarDetails();
         }
 
-        private static void CustomerAdded()
-        {
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "Walmart"});
-            if (result.Success)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
-        }
+        //private static void CustomerAdded()
+        //{
+        //    CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+        //    var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "Walmart"});
+        //    if (result.Success)
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //}
 
-        private static void UserAdded()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User { UserId = 2, FirstName = "Ali", LastName = "Koç", Password = "1907", Email = "AliKoc@gmail.com"});
-            if (result.Success)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //private static void UserAdded()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    var result = userManager.Add(new User { UserId = 2, FirstName = "Ali", LastName = "Koç", Password = "1907", Email = "AliKoc@gmail.com"});
+        //    if (result.Success)
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
 
-        }
+        //}
 
-        private static void RentalCarDetails()
-        {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+        //private static void RentalCarDetails()
+        //{
+        //    RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-            foreach (var rental in rentalManager.GetRentalDetails().Data)
-            {
-                Console.WriteLine(rental.RentalId + "/" + rental.CarName + "/" + rental.CustomerName + "/" + rental.RentDate + "/" + rental.ReturnDate);
-            }
-        }
+        //    foreach (var rental in rentalManager.GetRentalDetails().Data)
+        //    {
+        //        Console.WriteLine(rental.RentalId + "/" + rental.CarName + "/" + rental.CustomerName + "/" + rental.RentDate + "/" + rental.ReturnDate);
+        //    }
+        //}
 
 
 
