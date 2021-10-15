@@ -1,2 +1,2 @@
 # ReCapProject 7 
-## Autofac Configuration
+## Adding the image to the database with GUID
